@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.base.action.ContextAction;
 
-public abstract class BaseAdapter<VH extends BaseAdapter.ViewHold>
+public abstract class BaseAdapter<VH extends BaseAdapter.ViewHolder>
         extends RecyclerView.Adapter<VH> implements ContextAction {
 
     private Context mContext;
@@ -51,15 +51,15 @@ public abstract class BaseAdapter<VH extends BaseAdapter.ViewHold>
         mContext = context;
     }
 
-    public abstract class ViewHold extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public abstract class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         private int mViewHoldPosition;
 
-        public ViewHold(@LayoutRes int id) {
+        public ViewHolder(@LayoutRes int id) {
             this(LayoutInflater.from(mContext).inflate(id, getRecyclerView(), false));
         }
 
-        public ViewHold(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             if (mOnItemListener != null) {
